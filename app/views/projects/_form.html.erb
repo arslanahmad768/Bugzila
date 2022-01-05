@@ -1,0 +1,17 @@
+<%= form_with model: @project do |form| %>
+  <div>
+    <%= form.label :title %><br>
+    <%= form.text_field :title %>
+  </div>
+
+  <div>
+    <%= form.label :description %><br>
+    <%= form.text_area :description %>
+  </div>
+    <%=current_user.id%>
+      <%= form.hidden_field :user_id, value: current_user.id %>
+    <!-- hidden_field(:object, :field, :value => params[:requestval]) -->
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
