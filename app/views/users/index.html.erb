@@ -1,9 +1,9 @@
 <h1>welcome to University of Gujrat</h1>
 <%= link_to "LogOut", logout_path%>
 <ul>
-  <% @user.each do |user| %>
+  <% @project.each do |user| %>
     <li>
-      <%= user.name %><br>
+      <a href="projects/<%= user.id %>"><%= user.title %></a>
     </li>
   <% end %>
 </ul>
