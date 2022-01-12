@@ -1,0 +1,22 @@
+<h2>Project</h2>
+<h3><%= @project.title%></h3>
+<%= @project.description%><br>
+<ul>
+  <li><%= link_to "Edit", edit_project_path(@project)%></li>
+  <li><%= button_to "Destroy",@project,
+                  method: :delete,
+                  data: { confirm: "Are you sure?" } %></li>
+</ul>
+<% @check =  Bug.exists?(project_id: @project.id)%>
+<%if @check %>
+<h3>All Bugs</h3>
+<ul>
+  <%= Bug.where(project_id: @project.id).find_each do |project|%>
+    <li><%= project.title%></li><br>
+  <% end %>
+</ul>
+<% else %>
+<h5>No Bug exists of this project</h5>
+<%end%>
+<br>
+<%= link_to "Add Bug", new_bug_path(:project_id=>@project.id) %>

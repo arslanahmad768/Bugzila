@@ -1,0 +1,22 @@
+<div class="row inline-block">
+  <div class="col-sm-2 col-6">
+      <h2>All Projects</h2>
+  </div>
+  <div class="col-sm-8 col-6">
+    <%= link_to "LogOut", logout_path ,:class =>"btn btn-primary"%>
+  </div>
+</div>
+<ul>
+  <% @project.each do |user| %>
+    <li>
+      <%= link_to user.title, user if can? :read, Project%><br>
+    </li>
+  <% end %>
+</ul>
+
+<%= link_to "Add Project", new_project_path if can? :create, Project%>
+
+<!-- <div class="d-flex align-items-center justify-content-center">
+    <h2>welcome to bug system</h2>
+</div>
+ -->

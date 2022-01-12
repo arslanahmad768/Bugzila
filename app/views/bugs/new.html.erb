@@ -1,0 +1,38 @@
+<%= form_for @bug do |form| %>
+  <div class="card">
+    <div class="card-body">
+    <div class="mb-3">
+      <h1>New Bug</h1>
+    </div>
+      <div class="mb-3">
+    <%= form.label :Title , { class: "form-label"}%><br>
+    <%= form.text_field :title , { class: "form-control", placeholder: "Enter unique  bug title" }%>
+   </div>
+
+  <div class="mb-3">
+    <%= form.label :Description , { class: "form-label"}%><br>
+    <%= form.text_field :description , { class: "form-control", placeholder: "Enter Description" }%>
+  </div>
+  <div class="mb-3">
+    <%= form.label :Deadline , { class: "form-label"}%><br>
+    <%= form.date_field :deadline , { class: "form-control", placeholder: "Enter Deadline" }%>
+  </div>
+  <div class="mb-3">
+    <%= form.label :Screenshot , { class: "form-label"}%><br>
+    <%= form.file_field :image  , { class: "form-control",:accept => "image/x-png,image/gif"}%>
+  </div>
+  <div class="mb-3">
+    <%=form.select :bugType,["feature","bug"]%><br>
+  </div >
+<!--     <%= form.select(:status,options_for_select([["new","new"],["started","started"],["completed","completed"]])) %><br>
+
+    <%= form.select(:status,options_for_select([["new","new"],["started","started"],["resolved","resolved"]]))%><br>
+ -->
+  <%=form.select :status,["new","started","completed","resolved"],{class:"form-control"} %><br>
+    <%= form.hidden_field :user_id, value: current_user.id%>
+    <%= form.hidden_field :project_id %>
+  <%= form.submit "Submit", class: "btn btn-primary"%>
+  </div>
+  </div>
+<% end %>
+

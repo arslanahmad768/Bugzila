@@ -1,0 +1,16 @@
+current directory: /home/user/Project/Bugzila/vendor/bundle/ruby/3.0.0/gems/strscan-3.0.1/ext/strscan
+/usr/local/rvm/rubies/ruby-3.0.0/bin/ruby -I /usr/local/rvm/rubies/ruby-3.0.0/lib/ruby/3.0.0 -r ./siteconf20220110-7175-8437pt.rb extconf.rb
+checking for onig_region_memsize() in ruby.h... yes
+creating Makefile
+
+current directory: /home/user/Project/Bugzila/vendor/bundle/ruby/3.0.0/gems/strscan-3.0.1/ext/strscan
+make "DESTDIR=" clean
+
+current directory: /home/user/Project/Bugzila/vendor/bundle/ruby/3.0.0/gems/strscan-3.0.1/ext/strscan
+make "DESTDIR="
+compiling strscan.c
+linking shared-object strscan.so
+
+current directory: /home/user/Project/Bugzila/vendor/bundle/ruby/3.0.0/gems/strscan-3.0.1/ext/strscan
+make "DESTDIR=" install
+/usr/bin/install -m 0755 strscan.so ./.gem.20220110-7175-6ulaux

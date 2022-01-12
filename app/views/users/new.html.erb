@@ -1,0 +1,27 @@
+<%= form_for @user do |form| %>
+  <div class="card">
+    <div class="card-body">
+    <div class="mb-3">
+      <h1>Sign Up</h1>
+    </div>
+      <div class="mb-3">
+    <%= form.label :Name , { class: "form-label"}%><br>
+    <%= form.text_field :name , { class: "form-control", placeholder: "Enter Name" }%>
+   </div>
+
+  <div class="mb-3">
+    <%= form.label :Email , { class: "form-label"}%><br>
+    <%= form.email_field :email , { class: "form-control", placeholder: "Enter Email" }%>
+  </div>
+  <div class="mb-3">
+    <%= form.label :Password , { class: "form-label"}%><br>
+    <%= form.password_field :password , { class: "form-control", placeholder: "Enter Password" }%>
+  </div>
+  <div class="mb-3">
+      <%=form.select :userType,["manager","developer","qa"]%>
+  </div >
+    <%= form.submit "Submit", class: "btn btn-primary"%>
+
+  </div>
+  </div>
+<% end %>

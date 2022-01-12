@@ -1,0 +1,19 @@
+<%= form_tag '/login' do %>
+  <div class="card">
+    <div class="card-body">
+      <div class="mb-3">
+        <h1>Log In</h1>
+      </div>
+      <div class="mb-3">
+        <%= label_tag :Email ,'', class: "form-label"%>
+        <%= text_field_tag :email ,'',  class: "form-control", placeholder: "Enter Email" %>
+      </div>
+      <div class="mb-3">
+        <%= label_tag :Password , '',class: "form-label"%>
+        <%= password_field_tag :password ,'', class: "form-control", placeholder: "Enter Password" %><br>
+      </div>
+      <%= submit_tag "Log In",class: "btn btn-primary"%>
+      <a class="btn btn-primary" href="/users/new" role="button">Sign UP</a>
+  </div>
+</div>
+<% end %>
