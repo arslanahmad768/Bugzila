@@ -25,7 +25,7 @@
 <br>
 <%= link_to "Add Project", new_project_path if can? :create, Project%>
 <%if current_user.userType == 'developer'%>
-<h2><%= link_to " Bug", bugs_path %></h2>
+<h2> <%= link_to " Bug ", bugs_path %> </h2>
 <%end%>
 
 <!-- <div class="d-flex align-items-center justify-content-center">
