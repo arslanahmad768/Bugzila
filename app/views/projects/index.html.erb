@@ -6,15 +6,27 @@
     <%= link_to "LogOut", logout_path ,:class =>"btn btn-primary"%>
   </div>
 </div>
-<ul>
-  <% @project.each do |user| %>
-    <li>
-      <%= link_to user.title, user if can? :read, Project%><br>
-    </li>
+<% @check = ProjectUser.exists?(user_id:current_user.id)%>
+<% if @check %>
+    <% ProjectUser.where(user_id: current_user.id).find_each do |project|%>
+    <% @project = Project.where(id: project.project_id) %>
+    <% @project.each do |user| %>
+          <%= link_to user.title, user if can? :read, Project%><br>
+          <% if can? :new, Bug %>
+          <%= link_to "Add Bug", new_bug_path(:project_id=>user.id) %>
+          <% end %>
+    <% end %>
   <% end %>
-</ul>
-
+<% else %>
+      <% @project.each do |user| %>
+          <%= link_to user.title, user if can? :read, Project%><br>
+      <% end %>
+<% end %>
+<br>
 <%= link_to "Add Project", new_project_path if can? :create, Project%>
+<%if current_user.userType == 'developer'%>
+<h2><%= link_to " Bug", bugs_path %></h2>
+<%end%>
 
 <!-- <div class="d-flex align-items-center justify-content-center">
     <h2>welcome to bug system</h2>

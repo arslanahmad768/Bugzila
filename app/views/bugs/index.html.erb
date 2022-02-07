@@ -1,2 +1,9 @@
-<h1>Bugs#index</h1>
-<p>Find me in app/views/bugs/index.html.erb</p>
+<h1>My assigned bugs</h1>
+<% @bugs.each do |bug| %>
+<li>
+        <a href="/bugs/<%= bug.id %>">
+        <%= bug.descriptive_title %>
+      </a>
+    </li>
+  <% end %>
+</ul>

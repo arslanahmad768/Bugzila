@@ -15,7 +15,7 @@ class ProjectsController < ApplicationController
     @project = Project.new(project_params)
     @project.save
     # @project = @user.projects.create(project_params)
-    redirect_to project_path
+    redirect_to projects_path
   end
   def show
     @project = Project.find(params[:id])

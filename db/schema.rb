@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_09_151851) do
+ActiveRecord::Schema.define(version: 2022_01_17_172107) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -57,6 +57,15 @@ ActiveRecord::Schema.define(version: 2022_01_09_151851) do
     t.index ["user_id"], name: "index_bugs_on_user_id"
   end
 
+  create_table "project_users", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "project_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["project_id"], name: "index_project_users_on_project_id"
+    t.index ["user_id"], name: "index_project_users_on_user_id"
+  end
+
   create_table "projects", force: :cascade do |t|
     t.string "title"
     t.text "description"
@@ -79,5 +88,7 @@ ActiveRecord::Schema.define(version: 2022_01_09_151851) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "bugs", "projects"
   add_foreign_key "bugs", "users"
+  add_foreign_key "project_users", "projects"
+  add_foreign_key "project_users", "users"
   add_foreign_key "projects", "users"
 end

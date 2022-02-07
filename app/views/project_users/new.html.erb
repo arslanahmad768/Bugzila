@@ -1,0 +1,12 @@
+<ul>
+<h4>Developer</h4>
+<%= User.where(userType:"developer" ).find_each do |user|%>
+    <li><%= button_to user.name,project_users_path(:project_id=>@project,:user_id=>user.id)%></li><br>
+<% end %>
+</ul>
+<ul>
+<h4>QA</h4>
+<%= User.where(userType:"qa" ).find_each do |user|%>
+    <li><%= button_to user.name,project_users_path(:project_id=>@project,:user_id=>user.id)%></li><br>
+<% end %>
+</ul>

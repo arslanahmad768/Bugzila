@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'project_users/index'
+  get 'projectusers/index'
+  get 'project_user/index'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
@@ -15,4 +18,5 @@ Rails.application.routes.draw do
 
     resources:projects
     resources:bugs
+    resources:project_users
 end

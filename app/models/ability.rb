@@ -7,18 +7,27 @@ class Ability
     user ||= User.new # guest user
 
         if user.manager?
-          can :manage, Project
+          can :manage, Project,user_id:user.id
           can :manage, User
-
+          # can :create, Bug
+          cannot :create, Bug
+          can :create,ProjectUser
         elsif user.developer?
-          # cannot :read, Project
+          can :read,ProjectUser
+          can :read, Bug
+          can :read,Project
+          # can :read,Project
 
+
+          # can :read, project_users
+          # cannot :read, Project
           # can :create, Comment
           # can :update, Comment do |comment|
           #   comment.try(:user) == user || user.role?(:moderator)
-        end
+        else
           can :read, Project
           can :manage, Bug
+        end
           # if user.role?(:author)
           #   can :create, Article
           #   can :update, Article do |article|
